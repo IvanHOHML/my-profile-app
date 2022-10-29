@@ -1,0 +1,48 @@
+.header {
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+    background-color: rgba(128, 133, 223, 0.411);
+    overflow: hidden;
+}
+
+.slider {
+    position: fixed;
+    min-width: 100%;
+    height: 100vh;
+    top: -100%;
+    background-color: red;
+    transition: 1s ease;
+}
+
+.slider.active {
+    top: 0;
+    transition: 1s ease;
+}
+
+.slider ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.slider ul li {
+    margin-block: 2.5rem;
+}
+
+.slider ul li a {
+    font-size: 20px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.menu-icon.menu {
+    display: block;
+    color: red;
+    font-size: 1000px;
+    cursor: pointer;
+}
+
+.closed.close {
+    display: block;
+    cursor: pointer;
+    color: #fff;
+}
