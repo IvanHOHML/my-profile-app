@@ -12,27 +12,32 @@ const Header = () => {
     }
     return (
         <div className='header'>
-            <div className='menu-icon'>
-                <MenuOutlined className='menu' onClick={showMenu} />
+            <div className='typewriter-name'>
+                <p class='line anim-typewriter'>Ivan.Ho.</p>
             </div>
-            <nav className={active ? 'slider active' : 'slider'}>
+            <div className="menu-icon">
+                <MenuOutlined className="menu" onClick={showMenu} />
+            </div>
+            <nav className={`dropdown-menu ${active ? 'active' : 'inactive'}`}>
                 <ul>
                     <div className='closed'>
                         <Close className='close' onClick={showMenu} />
                     </div>
-                    <li>
-                        <Link to='/Home'>Home</Link>
-                    </li>
-                    <li>
-                        <Link to='/Projects'>Projects</Link>
-                    </li>
-                    <li>
-                        <Link to='/FindMe'>Find Me</Link>
-                    </li>
+                    <DropDownItem route="/Home" text="Home" />
+                    <DropDownItem route="/Projects" text="Projects" />
+                    <DropDownItem route="/Message" text="Send Me Message" />
                 </ul>
             </nav>
         </div>
 
+    )
+}
+
+function DropDownItem(props) {
+    return (
+        <li>
+            <Link to={props.route}>{props.text}</Link>
+        </li>
     )
 }
 

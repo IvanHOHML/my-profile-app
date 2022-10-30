@@ -1,48 +1,229 @@
+:root {
+    --primary-bg: #242526;
+    --secondary-bg: #fff;
+    --primary-text-color: #555;
+    --secondary-text-color: #cecece;
+    --border-radius: 0px;
+    --speed: 800ms;
+}
+
+html,
+body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden
+}
+
 .header {
-    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
-    background-color: rgba(128, 133, 223, 0.411);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 4vh;
+    align-items: center;
+    background-color: black;
+}
+
+.typewriter-name {
+    color: #39ff14;
+    font-family: 'Anonymous Pro', monospace;
+    margin-left: 12vh;
+    font-weight: 600;
+}
+
+.line {
+    position: relative;
+    top: 50%;
+    width: 5em;
+    margin: 0 auto;
+    border-right: 2px solid rgba(255, 255, 255, 0.75);
+    font-size: 180%;
+    text-align: left;
+    white-space: nowrap;
     overflow: hidden;
 }
 
-.slider {
-    position: fixed;
-    min-width: 100%;
-    height: 100vh;
-    top: -100%;
-    background-color: red;
-    transition: 1s ease;
+.anim-typewriter {
+    animation: typewriter 1.5s steps(25) 1s 1 normal both,
+        blinkTextCursor 500ms steps(40) infinite normal;
 }
 
-.slider.active {
-    top: 0;
-    transition: 1s ease;
+@keyframes typewriter {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 5em;
+    }
 }
 
-.slider ul {
+@keyframes blinkTextCursor {
+    from {
+        border-right-color: rgba(255, 255, 255, 0.75);
+    }
+
+    to {
+        border-right-color: transparent;
+    }
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100px;
+    right: 20px;
+    background-color: #fff;
+    border-radius: var(--border-radius);
+    padding: 10px 20px;
+    width: 200px;
+}
+
+.dropdown-menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition: var(--speed) ease;
+}
+
+.dropdown-menu.inactive {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: var(--speed) ease;
+}
+
+.dropdown-menu ul {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.slider ul li {
-    margin-block: 2.5rem;
+.dropdown-menu ul li {
+    padding: 10px 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.slider ul li a {
-    font-size: 20px;
-    text-decoration: none;
-    color: #fff;
-}
-
-.menu-icon.menu {
-    display: block;
-    color: red;
-    font-size: 1000px;
+.dropdown-menu ul li:hover a {
+    color: rgb(212, 33, 9);
     cursor: pointer;
 }
 
-.closed.close {
-    display: block;
+
+.menu-icon .menu {
+    color: #fff;
+    font-size: 60px;
+    cursor: pointer;
+    margin-right: 12vh;
+}
+
+.closed .close {
+    display: flex;
     cursor: pointer;
     color: #fff;
+}
+
+
+
+
+@media (max-width:900px) {
+    .header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding-top: 4vh;
+        align-items: center;
+        background-color: black;
+    }
+
+    .typewriter-name {
+        color: #39ff14;
+        font-family: 'Anonymous Pro', monospace;
+        margin-left: 12vh;
+        font-weight: 600;
+    }
+
+    .line {
+        position: relative;
+        top: 50%;
+        width: 5em;
+        margin: 0 auto;
+        border-right: 2px solid rgba(255, 255, 255, 0.75);
+        font-size: 180%;
+        text-align: left;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+    .anim-typewriter {
+        animation: typewriter 1.5s steps(25) 1s 1 normal both,
+            blinkTextCursor 500ms steps(40) infinite normal;
+    }
+
+    @keyframes typewriter {
+        from {
+            width: 0;
+        }
+
+        to {
+            width: 5em;
+        }
+    }
+
+    @keyframes blinkTextCursor {
+        from {
+            border-right-color: rgba(255, 255, 255, 0.75);
+        }
+
+        to {
+            border-right-color: transparent;
+        }
+    }
+
+    .dropdown-menu::before {
+        visibility: hidden;
+    }
+
+    .dropdown-menu {
+        position: fixed;
+        min-width: 100%;
+        height: 100vh;
+        top: -100%;
+        background-color: #000;
+        transition: 1s ease;
+    }
+
+    .dropdown-menu.active {
+        top: 0;
+        transition: 1s ease;
+    }
+
+    .dropdown-menu ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .dropdown-menu ul li {
+        margin-block: 2.5rem;
+        list-style: none;
+    }
+
+    .dropdown-menu ul li a {
+        font-size: 16px;
+        text-decoration: none;
+        color: #fff;
+    }
+
+    .menu-icon .menu {
+        color: #fff;
+        font-size: 60px;
+        cursor: pointer;
+        margin-right: 12vh;
+    }
+
+
+    .closed .close {
+        display: flex;
+        cursor: pointer;
+        color: #fff;
+    }
 }
